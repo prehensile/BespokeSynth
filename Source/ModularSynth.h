@@ -66,9 +66,10 @@ public:
    void TextEntryActivated(TextEntry* entry) override;
    void TextEntryComplete(TextEntry* entry) override;
 
+   bool IsEnabled() const override { return false; }
+
 private:
    void DrawModule() override {}
-   bool Enabled() const override { return false; }
 };
 
 class ModularSynth
@@ -287,7 +288,7 @@ public:
 
    static int sLoadingFileSaveStateRev;
    static int sLastLoadedFileSaveStateRev;
-   static constexpr int kSaveStateRev = 424;
+   static constexpr int kSaveStateRev = 425;
 
 private:
    void ResetLayout();

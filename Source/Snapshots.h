@@ -83,9 +83,12 @@ public:
    //IPatchable
    void PostRepatch(PatchCableSource* cableSource, bool fromUserClick) override;
 
+   bool IsEnabled() const override { return true; }
+
 private:
    void SetSnapshot(int idx, double time);
    void Store(int idx);
+   void Delete(int idx);
    void UpdateGridValues();
    void SetGridSize(float w, float h);
    bool IsConnectedToPath(std::string path) const;
@@ -95,7 +98,6 @@ private:
    //IDrawableModule
    void DrawModule() override;
    void DrawModuleUnclipped() override;
-   bool Enabled() const override { return true; }
    void GetModuleDimensions(float& w, float& h) override;
    void OnClicked(float x, float y, bool right) override;
    bool MouseMoved(float x, float y) override;
@@ -155,6 +157,7 @@ private:
    PatchCableSource* mUIControlCable{ nullptr };
    int mQueuedSnapshotIndex{ -1 };
    bool mAllowSetOnAudioThread{ false };
+   bool mAutoStoreOnSwitch{ false };
    TextEntry* mSnapshotLabelEntry{ nullptr };
    std::string mSnapshotLabel;
    int mLoadRev{ -1 };
