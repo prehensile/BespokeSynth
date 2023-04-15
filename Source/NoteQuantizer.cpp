@@ -51,6 +51,14 @@ void NoteQuantizer::CreateUIControls()
    mNoteRepeatCheckbox = new Checkbox(this, "repeat", 3, 22, &mNoteRepeat);
 
    mQuantizeIntervalSelector->AddLabel("none", kInterval_None);
+   mQuantizeIntervalSelector->AddLabel("16", kInterval_16);
+   mQuantizeIntervalSelector->AddLabel("8", kInterval_8);
+   mQuantizeIntervalSelector->AddLabel("4", kInterval_4);
+   mQuantizeIntervalSelector->AddLabel("3", kInterval_3);
+   mQuantizeIntervalSelector->AddLabel("2", kInterval_2);
+   mQuantizeIntervalSelector->AddLabel("1n", kInterval_1n);
+   mQuantizeIntervalSelector->AddLabel("2n", kInterval_2n);
+   mQuantizeIntervalSelector->AddLabel("2nt", kInterval_2nt);
    mQuantizeIntervalSelector->AddLabel("4n", kInterval_4n);
    mQuantizeIntervalSelector->AddLabel("4nt", kInterval_4nt);
    mQuantizeIntervalSelector->AddLabel("8n", kInterval_8n);
