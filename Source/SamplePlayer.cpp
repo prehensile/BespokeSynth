@@ -133,6 +133,9 @@ void SamplePlayer::CreateUIControls()
    mRecordGate.SetRelease(100);
    mRecordGate.SetName("gate");
    mRecordGate.CreateUIControls();
+
+   mPositionSlider = new FloatSlider(this, "position", mRecordGate.GetRect().getMaxX() + 3, 20, 110, 15, &mPosition, 0, 1);
+   //mPositionSlider->SetEnabled(false);
 }
 
 SamplePlayer::~SamplePlayer()
@@ -380,6 +383,8 @@ void SamplePlayer::Process(double time)
          Add(target->GetBuffer()->GetChannel(ch), gWorkChannelBuffer.GetChannel(ch), bufferSize);
          GetVizBuffer()->WriteChunk(gWorkChannelBuffer.GetChannel(ch), bufferSize, ch);
       }
+
+      mPosition = mSample->GetPlayPosition() / mSample->LengthInSamples();
    }
 
    GetBuffer()->Reset();
@@ -976,6 +981,7 @@ void SamplePlayer::DrawModule()
    mRecordingAppendModeCheckbox->Draw();
    mRecordAsClipsCheckbox->Draw();
    mRecordGate.Draw();
+   mPositionSlider->Draw();
 
    for (size_t i = 0; i < mSearchResultButtons.size(); ++i)
    {

@@ -240,4 +240,7 @@ private:
    GateEffect mRecordGate;
    int mRecordAsClipsCueIndex{ 0 };
    bool mStopOnNoteOff{ false };
+
+   FloatSlider* mPositionSlider{ nullptr };
+   float mPosition{ 0 };
 };
